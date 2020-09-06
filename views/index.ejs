@@ -1,0 +1,411 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 415px)" href="/style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="nav">
+        <!-- Brand -->
+        <h3 class="heading">
+            COVID-TRACKER
+        </h3>
+       
+      
+        <!-- Links -->
+        
+      
+          <!-- Dropdown -->
+         
+        
+      </nav>
+      <div class="clock">
+         
+          <h1 class="clock1">
+              
+          </h1>
+          <h4 class="last">
+             
+          </h4>
+      </div>
+     
+
+      <div class="aa">
+            <h3>Confirmed Cases</h3>
+
+            <p class="para">
+                <%= res.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
+
+            </p>
+      </div>
+      <div class="aa1">
+        <h3>Recovered Cases</h3>
+        <p class="para">
+            <%= res.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
+        </p>
+    </div>
+    <div class="aa2">
+        <h3>Death Cases</h3>
+        <p class="para">
+            <%= res.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
+        </p>
+    </div>
+
+    <div class="usa">
+        <h2>USA</h2>
+        <p class="para">
+            
+                <p><b> Recovered Cases:</b> <%= res3.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+                <p> <b>Confirmed Cases: </b><%= res3.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+                <p><b> Death Cases:</b> <%= res3.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+
+        
+    </div>
+    <div class="india">
+        <h3>INDIA</h3>
+        <p class="para">
+            <p><b> Recovered Cases:</b> <%= res4.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+                <p> <b>Confirmed Cases: </b><%= res4.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+                <p><b> Death Cases:</b> <%= res4.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+
+        </p>
+    </div>
+    <div class="aus">
+        <h3>Australia</h3>
+        <p class="para">
+            <p><b> Recovered Cases:</b> <%= res5.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+            <p> <b>Confirmed Cases: </b><%= res5.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+            <p><b> Death Cases:</b> <%= res5.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
+
+        </p>
+    </div>
+    
+
+
+
+    <h3 class="country">
+        All Countries
+    </h3>
+
+
+    
+    <input type="text" class="form-control" autocomplete="off" placeholder="Search by city/state name" id="email" required>
+    <h3 class="country1">
+      Click on the city/place name to see it on the map
+  </h3>
+  </div>
+
+  <div class="scroll">
+    <table class="table table-hover ttt">
+        <tr>
+        <th>
+             Country
+        </th>
+        <th>
+          Confirmed
+        </th>
+        <th>
+         Recovered
+        </th>
+        <th>
+           Deaths
+        </th>
+        </tr>
+        <tbody id="myTable">
+    <% for(var i=0;i<res2.length;i++) 
+    {
+        if(res2[i].provinceState==null)
+        {
+            continue;
+        }
+        %>
+        
+        <tr>
+         
+            <td onclick="check('<%= res2[i].lat %>','<%= res2[i].long %>','<%= res2[i].provinceState %>'
+            ,'<%= res2[i].confirmed %>','<%= res2[i].recovered %>','<%= res2[i].deaths %>')">
+             <a href="#map">
+             <%=
+                res2[i].provinceState %>
+              </a>
+            </td>
+            <td>
+                <%= res2[i].confirmed %>
+                <br>
+                <p style="color: red;margin-left: -20px;"> (Confirmed)</p> 
+               
+            </td>
+            <td>
+               <p class="rec">
+                <%= res2[i].recovered %>
+            </p>
+                
+               <p style="color: green;margin-left: -20px;margin-top: -10px;">(Recovered)</p> 
+            </td>
+            <td>
+                <%= res2[i].deaths %>
+                <br>
+               <p style="color: black;margin-left: -20px;"> (Deaths)</p>
+            </td>
+          
+        </tr>
+        
+        
+<% } %>
+</tbody>
+    </table>
+  </div>
+
+  <div id="covid">
+
+  </div>
+
+
+  <div id = "map" style = "width:700px; height:480px; margin-left: 50vh; margin-bottom: 13px;">
+  
+  </div>
+  <div class="chart-container">
+
+  <canvas id="myChart">
+
+
+  </canvas>
+</div>
+
+
+  <div class="footer" id="aa">
+      <h5>
+          &copy; 2020 Designed by RISHAV AGARWAL(A passionate developer)
+          <br>
+          
+      </h5>
+      <h5 class="call">
+      Call me At: 6289712990 for any queries</h5>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-google"></a>
+      <a href="#" class="fa fa-instagram"></a>
+  </div>
+<script lang="javascript">
+  var zz=[]
+</script>
+ <%
+ for(var i=0;i<res2.length;i++)
+ {
+   %>
+  <script lang="javascript">
+    
+    if("<%=res2[i].provinceState %>"!="")
+    {
+    zz.push("<%= res2[i].provinceState %>")
+    }
+
+  </script>
+
+   <%
+ }
+ %>
+        
+
+
+<script lang="javascript">
+ console.log(zz)
+
+
+
+/*
+	Output: Hello_World
+*/
+
+/*var check  = "<%= res6.toString() %>"
+console.log(check.split(","))
+*/
+  var array=[];
+  var array1=[];
+  var array2=[];
+  var array3=[];
+  getInfo()
+  async function getInfo()
+  {
+    var res = await fetch("https://api.covid19india.org/data.json")
+    var json= await res.json()
+    
+    for(var i=1;i<json.statewise.length;i++)
+    {
+      array.push(json.statewise[i].state)
+      array1.push(json.statewise[i].confirmed)
+      array2.push(json.statewise[i].deaths)
+      array3.push(json.statewise[i].active)
+     }
+    console.log(array)
+    console.log(array2)
+    console.log(array3)
+    console.log(array1)
+   
+    }
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: array,
+        datasets: [{
+            label: 'Confirmes Cases',
+            data: array1,
+            backgroundColor:"red",
+            borderWidth: 1,
+            minBarLength:100
+        },
+        {
+            label: 'Recovered Cases',
+            data: array3,
+            backgroundColor:"#f1c40f",
+            borderWidth: 1,
+            minBarLength:100
+      },
+      {
+            label: 'Death Cases',
+            data: array1,
+            backgroundColor:"green",
+            borderWidth: 1,
+            minBarLength:100,
+
+        }]
+    },
+    options: {
+      responsive:true,
+      mainAspectRatio:false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+  var mar={}
+  function check(a,b,c,d,e,f)
+  {
+    if(mar!='undefined')
+    {
+      console.log("rishav")
+      map.removeLayer(mar)
+      mar = L.marker([a,b]).addTo(map)
+    .bindPopup(c+": Confirmed="+d+", Recovered="+e+", Deaths="+f)
+    .openPopup();
+    }
+    
+  }
+  var map = L.map('map').setView([11.206051, 122.447886], 8);
+mapLink =
+  '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; ' + mapLink + ' Contributors',
+    maxZoom: 18,
+  }).addTo(map);
+
+
+
+    document.getElementById("covid").style.backgroundImage="url('https://covid19.mathdro.id/api/og')";
+    
+    var aaa = "<%= res.lastUpdate.toString() %>"
+    var bbb = aaa.slice(0,10)
+    $(".last").text("Last updated on "+bbb)
+
+    
+    $(document).ready(function(){
+   setInterval(timer,1000)
+   function timer()
+   {
+       var d=new Date()
+       var hours = d.getHours()
+       var minutes = d.getMinutes()
+       var sec = d.getSeconds()
+       $(".clock1").text(hours+":"+minutes+":"+sec)
+   }
+    })
+
+
+
+    $(document).ready(function(){
+  $("#email").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+       
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        
+     
+    });
+  });
+});
+
+
+
+
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    console.log(rows.length)
+   
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByClassName("rec").innerHTML
+      y = rows[i+1].getElementsByTagName("TD")[2];
+    console.log(x)
+      //check if the two rows should switch place:
+      if (Number(x) > Number(y)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>    
+
+
+
+</body>
+</html>
