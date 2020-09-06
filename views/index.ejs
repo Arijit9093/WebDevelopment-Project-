@@ -223,7 +223,7 @@
     </h2>
 </div>
 <div id = "map3" style = "display: none; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
-  
+    
 </div>
 
 
@@ -420,6 +420,7 @@ render()
   function check(a,b,c,d,e,f)
   {
       document.getElementById("map3").style.display="block"
+      document.getElementById("map3").innerHTML="<h2 style='text-align:center; margin-top: 30px;'>"+c+"</h2>"
       var mar3={}
 var map3 = L.map('map3').setView([51.505, -0.09], 1);
 
