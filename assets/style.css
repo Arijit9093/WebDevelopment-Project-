@@ -222,6 +222,13 @@ body{
     width: 350px;
    
 }
+.navv{
+    margin-left: 20%;
+    display: flex;
+}
+.navv h5{
+    color: white;
+}
 .heading{
     margin-left: 40%;
     color: white;
@@ -247,6 +254,10 @@ body{
 }
 .aa2:hover{
     transform: scale(1.3);
+}
+#navv{
+    float: right;
+    color: white;
 }
 
 *{
