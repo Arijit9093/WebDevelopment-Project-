@@ -393,7 +393,7 @@ render()
     for(var i=0;i<zz.length;i++)
     {
         mar = L.marker([lat[i],lon[i]],{icon:zz1[0]}).addTo(map)
-    .bindPopup('Location: '+zz[i])
+    .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
     .openPopup();
     }
     
