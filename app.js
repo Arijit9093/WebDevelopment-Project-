@@ -45,12 +45,12 @@ app.get('/bt',function(req,res){
     res.render("bt")
 })
 
-app.get('/registration',function(req,res){
-    res.render("registration")
+app.get('/register',function(req,res){
+    res.render("register")
 })
 
 app.get('/forgot',function(req,res){
-    res.render('/forgot')
+    res.render('forgot')
 })
 
 app.get('/login',function(req,res){
