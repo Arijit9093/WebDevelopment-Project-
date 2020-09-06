@@ -2,11 +2,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://wonderfulengineering.com/wp-content/uploads/2014/05/airplane-wallpaper-2.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        Rishav
-    </h1>
+    <div class="container">
+       <div class="main">
+        <form action="">
+            <div class="form-group">
+              
+                <input type="email" class="form-control" placeholder="Enter first name" autocomplete="off" id="email" autocomplete="off">
+              </div>
+              <div class="form-group">
+              
+                <input type="email" class="form-control" placeholder="Enter last name" autocomplete="off" id="email" autocomplete="off">
+              </div>
+            <div class="form-group">
+              
+              <input type="email" class="form-control" placeholder="Enter email" id="email" autocomplete="off">
+            </div>
+            <div class="form-group">
+             
+              <input type="password" class="form-control" placeholder="Enter password" autocomplete="off" id="pwd">
+            </div>
+            <div class="form-group">
+              
+                <input type="email" class="form-control" placeholder="Verify Password" id="email" autocomplete="off">
+              </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+       </div>
+    </div>
 </body>
 </html>
