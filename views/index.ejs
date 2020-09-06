@@ -192,21 +192,35 @@
   </div>
   <div class="chart-container">
 
-  <canvas id="myChart">
+  <canvas id="myChart" style="width: 200px;">
 
 
   </canvas>
 </div>
+<div class="chart-container">
+  <canvas id="myChart1" style="width: 200px;">
+
+
+</canvas>
+</div>
+<div class="chart-container">
+
+<canvas id="myChart2" style="width: 200px;">
+
+
+</canvas>
+</div>
+
 
 
   <div class="footer" id="aa">
       <h5>
-          &copy; 2020 Designed by RISHAV AGARWAL(A passionate developer)
+          &copy; 2020 Designed by Rishav,Ashwath,Radhika (Web Development Project)
           <br>
           
       </h5>
       <h5 class="call">
-      Call me At: 6289712990 for any queries</h5>
+      Call Us At: 6289712990 for any queries</h5>
       <a href="#" class="fa fa-facebook"></a>
       <a href="#" class="fa fa-google"></a>
       <a href="#" class="fa fa-instagram"></a>
@@ -235,16 +249,6 @@
 
 <script lang="javascript">
  console.log(zz)
-
-
-
-/*
-	Output: Hello_World
-*/
-
-/*var check  = "<%= res6.toString() %>"
-console.log(check.split(","))
-*/
   var array=[];
   var array1=[];
   var array2=[];
@@ -262,10 +266,7 @@ console.log(check.split(","))
       array2.push(json.statewise[i].deaths)
       array3.push(json.statewise[i].active)
      }
-    console.log(array)
-    console.log(array2)
-    console.log(array3)
-    console.log(array1)
+    
    
     }
 
@@ -277,24 +278,9 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: 'Confirmes Cases',
             data: array1,
-            backgroundColor:"red",
+            backgroundColor:"yellow",
             borderWidth: 1,
             minBarLength:100
-        },
-        {
-            label: 'Recovered Cases',
-            data: array3,
-            backgroundColor:"#f1c40f",
-            borderWidth: 1,
-            minBarLength:100
-      },
-      {
-            label: 'Death Cases',
-            data: array1,
-            backgroundColor:"green",
-            borderWidth: 1,
-            minBarLength:100,
-
         }]
     },
     options: {
@@ -309,6 +295,62 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+//
+var ctx = document.getElementById('myChart1').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: array,
+        datasets: [{
+            label: 'Active Cases',
+            data: array3,
+            backgroundColor:"green",
+            borderWidth: 1,
+            minBarLength:100
+        }]
+    },
+    options: {
+      responsive:true,
+      mainAspectRatio:false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+//
+var ctx = document.getElementById('myChart2').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: array,
+        datasets: [{
+            label: 'Total Deaths',
+            data: array2,
+            backgroundColor:"red",
+            borderWidth: 1,
+            minBarLength:100
+        }]
+    },
+    options: {
+      responsive:true,
+      mainAspectRatio:false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+//
+
+
 
   var mar={}
   function check(a,b,c,d,e,f)
