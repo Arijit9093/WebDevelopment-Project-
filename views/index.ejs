@@ -188,7 +188,9 @@
 
 
   <div id = "map" style = "width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
-  
+    <h2>
+        Confirmed Cases
+    </h2>
   </div>
   <div class="chart-container">
 
@@ -410,15 +412,16 @@ render()
   }
 
 
-  var mar3={}
+ 
+  function check(a,b,c,d,e,f)
+  {
+      document.getElementById("map3").style.display="block"
+      var mar3={}
 var map3 = L.map('map3').setView([51.505, -0.09], 1);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map3);
-  function check(a,b,c,d,e,f)
-  {
-      document.getElementById("map3").style.display="block"
     if(mar3!='undefined')
     {
 
