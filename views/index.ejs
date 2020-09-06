@@ -152,7 +152,7 @@
          
             <td onclick="check('<%= res2[i].lat %>','<%= res2[i].long %>','<%= res2[i].provinceState %>'
             ,'<%= res2[i].confirmed %>','<%= res2[i].recovered %>','<%= res2[i].deaths %>')">
-             <a href="#map">
+             <a href="#map3">
              <%=
                 res2[i].provinceState %>
               </a>
@@ -214,6 +214,9 @@
   
 </div>
 <div id = "map2" style = "width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
+  
+</div>
+<div id = "map3" style = "width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
   
 </div>
 
@@ -405,14 +408,21 @@ render()
     }   
 }
   }
-  
+
+
+  var mar3={}
+var map3 = L.map('map3').setView([51.505, -0.09], 1);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map3);
   function check(a,b,c,d,e,f)
   {
-    if(mar!='undefined')
+    if(mar3!='undefined')
     {
-    map.clearLayers()
-      map.removeLayer(mar)
-      mar = L.marker([a,b]).addTo(map)
+
+      map3.removeLayer(mar3)
+      mar3 = L.marker([a,b]).addTo(map3)
     .bindPopup(c+": Confirmed="+d+", Recovered="+e+", Deaths="+f)
     .openPopup();
     }
