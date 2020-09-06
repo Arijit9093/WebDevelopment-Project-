@@ -1,51 +1,74 @@
-<html>
-<head><title>login</title>
-<style>
-body{
-    background-image:url('a.jpeg');
-}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-input[type=submit] { width: 200px;  }
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-input[type=reset] { width: 200px;   }
-
-tr.e{
-color:white;
-}
-
-
-</style>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://wonderfulengineering.com/wp-content/uploads/2014/05/airplane-wallpaper-2.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+        input[type=email]{
+            width: 400px;
+            padding: 20px;
+        }
+        input[type=password]{
+            width: 400px;
+            padding: 20px;
+        }
+        
+    </style>
 </head>
 <body>
-<Table  align="center"> 
+    <div class="container">
+       <div class="main">
+           <h1 style="text-align: center; margin-bottom: 30px;font-size: 50px;">
+               Login Page
+           </h1>
+           
+        <form action="">
+            <div class="form-group">
+              
+              <input type="email" required class="form-control" placeholder="Enter email" id="email" autocomplete="off">
+            </div>
+            <div class="form-group">
+             
+              <input type="password" required class="form-control" placeholder="Enter password" autocomplete="off" id="pwd">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <p style="margin-top: 20px;">
+            <a href="/forgot" style="color: red;font-size:14px;text-decoration: none;">
+            Forgot Password?
+          </a>
 
-<tr >
+        </p>
+        <p style="margin-top: 20px;">
+          <a href="/signup" style="color: red;font-size:14px;text-decoration: none;">
+         Do not have an account?
+        </a>
 
-<td  colspan="2" class="e">
-<h1>LOGIN</h1></td>
-</tr>
-   
-
-<tr class="e">
-    <td id="n">email</td>
-    <td><input type="email"></td>
-
-</tr>
-<tr class="e">
-    <td id="n">password (6-8 characters)</td>
-    <td><input type="password"></td>
-
-</tr>
-
-<tr class="e">
-  <td colspan="2"></td>
- </tr>
-<tr  class="e" ><td  align="center"><input type="submit" value="SUBMIT"></td>
-<td   align="center"> <input type="reset" name ="reset" value="Reset"></td></tr>
-<tr  class ="e"><td colspan="2" align="center"><a href="/register">Sign Up</A></td></tr>
-<tr  class ="e"><td colspan="2" align="center"><a href="/forgot">Forgot Password </A></td></tr>
-</Table>
-
-  
+      </p>
+       </div>
+    </div>
 </body>
 </html>
