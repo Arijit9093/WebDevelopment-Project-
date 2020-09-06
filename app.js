@@ -45,8 +45,8 @@ app.get('/bt',function(req,res){
     res.render("bt")
 })
 
-app.get('/register',function(req,res){
-    res.render("register")
+app.get('/signup',function(req,res){
+    res.render("signup")
 })
 
 app.get('/forgot',function(req,res){

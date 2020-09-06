@@ -37,7 +37,7 @@
               <a class="nav-link" href="/bt">About Us</a>
         </h5>
 <h5>          
-              <a class="nav-link" href="/register">SignUp/Login</a>
+              <a class="nav-link" href="/signup">SignUp/Login</a>
             </h5> 
         </div>
         <!-- Links -->
@@ -362,11 +362,25 @@ var myChart = new Chart(ctx, {
 
 
   var mar={}
+  /*render()
+  function render()
+  {
+      if(mar!='undefined')
+      {
+        map.removeLayer(mar)
+      }
+  }
+  */
+
+
+
+
+
   function check(a,b,c,d,e,f)
   {
     if(mar!='undefined')
     {
-      console.log("rishav")
+      
       map.removeLayer(mar)
       mar = L.marker([a,b]).addTo(map)
     .bindPopup(c+": Confirmed="+d+", Recovered="+e+", Deaths="+f)
@@ -382,6 +396,12 @@ L.tileLayer(
     attribution: '&copy; ' + mapLink + ' Contributors',
     maxZoom: 18,
   }).addTo(map);
+
+
+
+
+
+
     
     var aaa = "<%= res.lastUpdate.toString() %>"
     var bbb = aaa.slice(0,10)
