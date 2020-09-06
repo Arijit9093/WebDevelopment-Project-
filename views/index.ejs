@@ -253,7 +253,14 @@
   var array1=[];
   var array2=[];
   var array3=[];
-  getInfo()
+
+  data()
+async function data()
+{
+  await getInfo()
+  await renderData()
+}
+
   async function getInfo()
   {
     var res = await fetch("https://api.covid19india.org/data.json")
@@ -270,6 +277,9 @@
    
     }
 
+    function renderData()
+    {
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
@@ -285,7 +295,6 @@ var myChart = new Chart(ctx, {
     },
     options: {
       responsive:true,
-      mainAspectRatio:false,
         scales: {
             yAxes: [{
                 ticks: {
@@ -349,7 +358,7 @@ var myChart = new Chart(ctx, {
     }
 });
 //
-
+    }
 
 
   var mar={}
