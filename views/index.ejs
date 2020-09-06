@@ -410,7 +410,7 @@ render()
   {
     if(mar!='undefined')
     {
-      
+    map.clearLayers()
       map.removeLayer(mar)
       mar = L.marker([a,b]).addTo(map)
     .bindPopup(c+": Confirmed="+d+", Recovered="+e+", Deaths="+f)
