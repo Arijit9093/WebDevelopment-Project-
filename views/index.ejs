@@ -210,6 +210,13 @@
 
 </canvas>
 </div>
+<div id = "map1" style = "width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
+  
+</div>
+<div id = "map2" style = "width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
+  
+</div>
+
 
 
 
@@ -395,18 +402,10 @@ render()
         mar = L.marker([lat[i],lon[i]],{icon:zz1[0]}).addTo(map)
     .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
     .openPopup();
-    }
-    
-    }
-
+    }   
+}
   }
   
-  
-
-
-
-
-
   function check(a,b,c,d,e,f)
   {
     if(mar!='undefined')
@@ -419,6 +418,89 @@ render()
     }
     
   }
+ 
+
+
+
+  var mar1={}
+ 
+  var map1 = L.map('map1').setView([51.505, -0.09], 1);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map1);
+var zz1=[
+new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+})]
+
+
+render1()
+  function render1()
+  {
+    if(mar1!='undefined')
+    {
+      
+      map1.removeLayer(mar1)
+    for(var i=0;i<zz.length;i++)
+    {
+        mar1 = L.marker([lat[i],lon[i]],{icon:zz1[0]}).addTo(map1)
+    .bindPopup('Location: '+zz[i]+"<br>(Recovered Cases)")
+    .openPopup();
+    }
+    
+    }
+
+  }
+  
+  //
+  var mar2={}
+ 
+  var map2 = L.map('map2').setView([51.505, -0.09], 1);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map2);
+var zz2=[
+new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+})]
+
+
+render2()
+  function render2()
+  {
+    if(mar2!='undefined')
+    {
+      
+      map2.removeLayer(mar2)
+    for(var i=0;i<zz.length;i++)
+    {
+        mar2 = L.marker([lat[i],lon[i]],{icon:zz1[0]}).addTo(map2)
+    .bindPopup('Location: '+zz[i]+"<br>(Death Cases)")
+    .openPopup();
+    }
+    
+    }
+
+  }
+  
+  
+
+
+
+
+
  
 
 
