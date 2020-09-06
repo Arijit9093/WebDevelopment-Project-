@@ -251,8 +251,6 @@
    <%
  }
  %>
-        
-
 
 <script lang="javascript">
  console.log(zz)
@@ -371,15 +369,23 @@ var myChart = new Chart(ctx, {
 
 
   var mar={}
-  /*render()
+  render()
   function render()
   {
       if(mar!='undefined')
       {
         map.removeLayer(mar)
+
+        for(var i=0;i<zz.length;i++)
+        {
+            mar = L.marker([lat[i],lon[i]]).addTo(map)
+    .bindPopup("Location: "+zz[i])
+    .openPopup();
+        }
+        
       }
   }
-  */
+  
 
 
 
