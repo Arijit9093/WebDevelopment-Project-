@@ -229,6 +229,8 @@
   </div>
 <script lang="javascript">
   var zz=[]
+  var lat=[]
+  var lon=[]
 </script>
  <%
  for(var i=0;i<res2.length;i++)
@@ -236,9 +238,12 @@
    %>
   <script lang="javascript">
     
-    if("<%=res2[i].provinceState %>"!="" && !zz.includes("<%= res2[i].provinceState %>"))
+    if("<%=res2[i].provinceState %>"!="" && !zz.includes("<%= res2[i].provinceState %>")
+    && "<%=res2[i].lat %>"!="" && "<%=res2[i].long %>"!="")
     {
     zz.push("<%= res2[i].provinceState %>")
+    lat.push("<%= res2[i].lat %>")
+    lon.push("<%= res2[i].long %>")
     }
 
   </script>
@@ -251,6 +256,8 @@
 
 <script lang="javascript">
  console.log(zz)
+ console.log(lat)
+ console.log(lon)
   var array=[];
   var array1=[];
   var array2=[];
