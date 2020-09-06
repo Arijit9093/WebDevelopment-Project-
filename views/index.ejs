@@ -11,8 +11,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js" integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA==" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/mappa-mundi/dist/mappa.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -260,13 +258,13 @@
   var array1=[];
   var array2=[];
   var array3=[];
-
   data()
-async function data()
+  async function data()
 {
   await getInfo()
   await renderData()
 }
+  
 
   async function getInfo()
   {
@@ -367,24 +365,24 @@ var myChart = new Chart(ctx, {
 //
     }
 
-
   var mar={}
-  render()
+ 
+  var map = L.map('map').setView([51.505, -0.09], 1);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+render()
   function render()
   {
-      if(mar!='undefined')
-      {
-        map.removeLayer(mar)
+   
 
-        for(var i=0;i<zz.length;i++)
-        {
-            mar = L.marker([lat[i],lon[i]]).addTo(map)
-    .bindPopup("Location: "+zz[i])
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
     .openPopup();
-        }
-        
-      }
   }
+  
   
 
 
@@ -403,14 +401,7 @@ var myChart = new Chart(ctx, {
     }
     
   }
-  var map = L.map('map').setView([11.206051, 122.447886], 8);
-mapLink =
-  '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-L.tileLayer(
-  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; ' + mapLink + ' Contributors',
-    maxZoom: 18,
-  }).addTo(map);
+ 
 
 
 
@@ -435,6 +426,7 @@ L.tileLayer(
    }
     })
 
+    data()
 
 
     $(document).ready(function(){
