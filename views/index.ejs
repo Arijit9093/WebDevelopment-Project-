@@ -253,7 +253,7 @@
   <script lang="javascript">
     
     if("<%=res2[i].provinceState %>"!="" && !zz.includes("<%= res2[i].provinceState %>")
-    && "<%=res2[i].lat %>"!="" && "<%=res2[i].long %>"!="")
+    && "<%=res2[i].lat %>"!="" && "<%=res2[i].long %>"!="" && !Number.isNaN("<%= res2[i].long %>"))
     {
     zz.push("<%= res2[i].provinceState %>")
     lat.push("<%= res2[i].lat %>")
@@ -408,12 +408,7 @@ render()
       map.removeLayer(mar)
     for(var i=0;i<zz.length;i++)
     {
-        mar = L.circle([lat[i],lon[i]],{
-          color:'red',
-          fillColor:'red',
-          opacity:0.75,
-          radius:5000
-        }).addTo(map)
+        mar = L.circle([lat[i],lon[i]],200).addTo(map)
     .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
     .openPopup();
     }   
