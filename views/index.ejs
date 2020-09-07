@@ -245,6 +245,7 @@
   var zz=[]
   var lat=[]
   var lon=[]
+  var values=[]
 </script>
  <%
  for(var i=0;i<res2.length;i++)
@@ -258,6 +259,7 @@
     zz.push("<%= res2[i].provinceState %>")
     lat.push("<%= res2[i].lat %>")
     lon.push("<%= res2[i].long %>")
+    values.push("<%= res2[i].confirmed %>")
     }
 
   </script>
@@ -309,7 +311,7 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: 'Confirmes Cases',
             data: array1,
-            backgroundColor:"yellow",
+            backgroundColor:"blue",
             borderWidth: 1,
             minBarLength:100
         }]
@@ -408,9 +410,11 @@ render()
       map.removeLayer(mar)
     for(var i=0;i<zz.length;i++)
     {
-        mar = L.circle([lat[i],lon[i]],20,{
-          color: "red",
-          fillColor: "#f03"
+     
+        mar = L.circle([lat[i],lon[i]],29000,{
+          color: "blue",
+          
+          
           }).addTo(map)
     .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
     .openPopup();
