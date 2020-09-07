@@ -408,7 +408,10 @@ render()
       map.removeLayer(mar)
     for(var i=0;i<zz.length;i++)
     {
-        mar = L.circle([lat[i],lon[i]],200).addTo(map)
+        mar = L.circle([lat[i],lon[i]],20,{
+          color: "red",
+          fillColor: "#f03"
+          }).addTo(map)
     .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
     .openPopup();
     }   
