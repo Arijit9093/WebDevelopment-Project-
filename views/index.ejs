@@ -229,8 +229,11 @@
         Death Cases
     </h2>
 </div>
-<div id = "map3" style = "display: none; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
-    
+
+<div id = "map3" style = "width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
+  <h2 id="hh" style="text-align:center; margin-top: 30px;">
+      Death Cases
+  </h2>
 </div>
 <iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map" width="100%" height="600px"></iframe>
 
@@ -483,35 +486,34 @@ render()
 }
   }
 
-  
-  
+  var mar3={}
      
+  
+  var map3 = L.map('map3').setView([51.505, -0.09], 1);
+      
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map3);
   function check(a,b,c,d,e,f)
   {
-  
+   
    if(document.getElementById("map3").style.display=="none")
     {
       document.getElementById("map3").style.display="block"
     }
-        
-      var mar3={}
-      var map3={}
-      
-      
-     map3 = L.map('map3').setView([51.505, -0.09], 1);
-    
-      
-      
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map3);
-    if(mar3!='undefined')
+    document.getElementById("hh").innerHTML=c
+   
+    if(mar3!=null)
     {
-      map3.removeLayer(mar3)
+     
+     map3.removeLayer(mar3)
+     
       mar3 = L.marker([a,b]).addTo(map3)
     .bindPopup(c+": Confirmed="+d+", Recovered="+e+", Deaths="+f)
     .openPopup();
     }
+   
+
   
   }
  
