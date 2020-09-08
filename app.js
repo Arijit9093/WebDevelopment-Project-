@@ -40,7 +40,9 @@ app.use(session({
 
 const url = "https://covid19.mathdro.id/api"
 
-
+app.get('/about',function(req,res){
+    res.render("about")
+})
 app.get('/bt',function(req,res){
     res.render("bt")
 })

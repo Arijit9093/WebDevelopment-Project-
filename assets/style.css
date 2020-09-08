@@ -225,12 +225,15 @@ body{
     width: 350px;
    
 }
+
 .navv{
-    margin-left: 20%;
+    margin-left: 10%;
     display: flex;
+    color: red;
+    padding-top: 10px;
 }
-.navv h5{
-    color: white;
+.navv h5 .nav-link{
+    color: tomato;
 }
 .heading{
     margin-left: 40%;
