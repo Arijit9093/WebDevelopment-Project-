@@ -9,8 +9,9 @@ document.getElementById("search").onkeydown=function(e)
 {
   if(e.keyCode==13)
   {
+    var aa = document.getElementById("search").value
     document.getElementById("search").value=""
-    getResults(document.getElementById("search").value);
+    getResults(aa);
     
   }
 }
