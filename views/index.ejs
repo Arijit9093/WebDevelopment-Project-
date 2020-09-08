@@ -255,13 +255,13 @@
 
 </script>
  <%
- for(var i=0;i<res2.length;i++)
+ for(var i=0;i<res6.length;i++)
  {
    %>
   <script lang="javascript">
     
-    if("<%=res2[i].provinceState %>"!="" && !zz.includes("<%= res2[i].provinceState %>")
-    && "<%=res2[i].lat %>"!="" && "<%=res2[i].long %>"!="" && !Number.isNaN("<%= res2[i].long %>"))
+    if("<%=res6[i].provinceState %>"!="" && !zz.includes("<%= res6[i].provinceState %>")
+    && "<%= res6[i].lat %>"!="" && "<%=res6[i].long %>"!="" && !Number.isNaN("<%= res2[i].long %>"))
     {
     zz.push("<%= res2[i].provinceState %>")
     lat.push("<%= res2[i].lat %>")
@@ -462,15 +462,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map1);
-var zz1=[
-new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-})]
+
 
 
 render1()

@@ -76,6 +76,11 @@ app.get('/',function(req,res){
 
         var data1 = await fetch('https://covid19.mathdro.id/api/confirmed/');
         var response1 = await data1.json();
+       
+        var rec = await fetch('https://covid19.mathdro.id/api/recovered/')
+        var recovered = await rec.json()
+
+
 
         var data2 = await fetch('https://covid19.mathdro.id/api/countries/USA')
         var response2 = await data2.json()
@@ -87,7 +92,7 @@ app.get('/',function(req,res){
         var response4 = await data4.json()
 
         
-    res.render("index",{'res':response,'res2':response1,'res3':response2,'res4':response3,'res5':response4,'res6':array})
+    res.render("index",{'res':response,'res2':response1,'res3':response2,'res4':response3,'res5':response4,'res6':recovered})
     }
     
 })
