@@ -479,7 +479,9 @@ render1()
       map1.removeLayer(mar1)
     for(var i=0;i<zz.length;i++)
     {
-      mar1 = L.circle([lat[i],lon[i]],29000).addTo(map1)
+      mar1 = L.circle([lat[i],lon[i]],29000,{
+        color:'green',
+      }).addTo(map1)
     .bindPopup('Location: '+zz[i]+"<br>(Recovered Cases)")
     .openPopup();
     }
