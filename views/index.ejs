@@ -231,7 +231,7 @@
 <div id = "map3" style = "display: none; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
     
 </div>
-
+<iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map" width="100%" height="600px"></iframe>
 
 
 
@@ -261,12 +261,13 @@
   <script lang="javascript">
     
     if("<%=res6[i].provinceState %>"!="" && !zz.includes("<%= res6[i].provinceState %>")
-    && "<%= res6[i].lat %>"!="" && "<%=res6[i].long %>"!="" && !Number.isNaN("<%= res2[i].long %>"))
+    && "<%= res6[i].lat %>"!="" && "<%=res6[i].long %>"!="" && !Number.isNaN("<%= res2[i].long %>")
+    && !Number.isNaN("<%= res2[i].lat %>"))
     {
-    zz.push("<%= res2[i].provinceState %>")
-    lat.push("<%= res2[i].lat %>")
-    lon.push("<%= res2[i].long %>")
-    values.push("<%= res2[i].confirmed %>")
+    zz.push("<%= res6[i].provinceState %>")
+    lat.push("<%= res6[i].lat %>")
+    lon.push("<%= res6[i].long %>")
+    values.push("<%= res6[i].confirmed %>")
     }
 
   </script>
@@ -276,7 +277,8 @@
  %>
 
 <script lang="javascript">
- 
+  console.log(lat)
+  console.log(lon)
   var array=[];
   var array1=[];
   var array2=[];
@@ -427,7 +429,7 @@ render()
 }
   }
 
-
+  
  
   function check(a,b,c,d,e,f)
   {
@@ -442,7 +444,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     if(mar3!='undefined')
     {
 
-      map3.removeLayer(mar3)
+     
+      mar3 = L.marker([a,b]).addTo(map3)
+    .bindPopup(c+": Confirmed="+d+", Recovered="+e+", Deaths="+f)
+    .openPopup();
+    }
+    else{
       mar3 = L.marker([a,b]).addTo(map3)
     .bindPopup(c+": Confirmed="+d+", Recovered="+e+", Deaths="+f)
     .openPopup();
@@ -472,10 +479,8 @@ render1()
       map1.removeLayer(mar1)
     for(var i=0;i<zz.length;i++)
     {
-      mar1 = L.circle([lat[i],lon[i]],29000,{
-          color: "green", 
-          }).addTo(map1)
-    .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
+      mar1 = L.circle([lat[i],lon[i]],29000).addTo(map1)
+    .bindPopup('Location: '+zz[i]+"<br>(Recovered Cases)")
     .openPopup();
     }
     
@@ -502,7 +507,7 @@ render2()
     for(var i=0;i<zz.length;i++)
     {
       mar2 = L.circle([lat[i],lon[i]],29000,{
-          color: "red",
+          color: "red"
           }).addTo(map2)
     .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
     .openPopup();
