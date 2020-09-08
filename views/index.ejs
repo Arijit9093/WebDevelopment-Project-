@@ -252,7 +252,7 @@
   var lat=[]
   var lon=[]
   var values=[]
-  
+
 </script>
  <%
  for(var i=0;i<res2.length;i++)
@@ -316,7 +316,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: array,
         datasets: [{
-            label: 'Confirmes Cases',
+            label: 'Confirmed Cases',
             data: array1,
             backgroundColor:"blue",
             borderWidth: 1,
@@ -482,8 +482,10 @@ render1()
       map1.removeLayer(mar1)
     for(var i=0;i<zz.length;i++)
     {
-        mar1 = L.marker([lat[i],lon[i]],{icon:zz1[0]}).addTo(map1)
-    .bindPopup('Location: '+zz[i]+"<br>(Recovered Cases)")
+      mar1 = L.circle([lat[i],lon[i]],29000,{
+          color: "green", 
+          }).addTo(map1)
+    .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
     .openPopup();
     }
     
@@ -519,8 +521,10 @@ render2()
       map2.removeLayer(mar2)
     for(var i=0;i<zz.length;i++)
     {
-        mar2 = L.marker([lat[i],lon[i]],{icon:zz1[0]}).addTo(map2)
-    .bindPopup('Location: '+zz[i]+"<br>(Death Cases)")
+      mar2 = L.circle([lat[i],lon[i]],29000,{
+          color: "red",
+          }).addTo(map2)
+    .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
     .openPopup();
     }
     
