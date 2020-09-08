@@ -247,6 +247,10 @@
       <a href="#" class="fa fa-google"></a>
       <a href="#" class="fa fa-instagram"></a>
   </div>
+
+
+
+
 <script lang="javascript">
   var zz=[]
   var lat=[]
@@ -261,13 +265,13 @@
   <script lang="javascript">
     
     if("<%=res6[i].provinceState %>"!="" && !zz.includes("<%= res6[i].provinceState %>")
-    && "<%= res6[i].lat %>"!="" && "<%=res6[i].long %>"!="" && !Number.isNaN("<%= res2[i].long %>")
+    && "<%= res6[i].lat %>"!="" && "<%=res6[i].long %>"!="" && !Number.isNaN("<%= res6[i].long %>")
     && !Number.isNaN("<%= res2[i].lat %>"))
     {
     zz.push("<%= res6[i].provinceState %>")
     lat.push("<%= res6[i].lat %>")
     lon.push("<%= res6[i].long %>")
-    values.push("<%= res6[i].confirmed %>")
+    values.push("<%= res6[i].recovered %>")
     }
 
   </script>
@@ -276,9 +280,57 @@
  }
  %>
 
+
+
+
+
+
+ <script lang="javascript">
+  var zz1=[]
+  var lat1=[]
+  var lon1=[]
+  var values1=[]
+
+</script>
+ <%
+ for(var i=0;i<res2.length;i++)
+ {
+   %>
+  <script lang="javascript">
+    
+    if("<%=res2[i].provinceState %>"!="" && "<%=res2[i].provinceState %>"!='undefined' && !zz1.includes("<%= res2[i].provinceState %>")
+    && "<%= res2[i].lat %>"!="" && "<%=res2[i].long %>"!="" && !Number.isNaN("<%= res2[i].long %>")
+    && !Number.isNaN("<%= res2[i].lat %>"))
+    {
+    zz1.push("<%= res2[i].provinceState %>")
+    lat1.push("<%= res2[i].lat %>")
+    lon1.push("<%= res2[i].long %>")
+    values1.push("<%= res2[i].confirmed %>")
+    }
+
+  </script>
+
+   <%
+ }
+ %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script lang="javascript">
-  console.log(lat)
-  console.log(lon)
+  console.log(lat1)
+  console.log(lon1)
+  console.log(zz1)
   var array=[];
   var array1=[];
   var array2=[];
@@ -415,17 +467,17 @@ render()
     {
       
       map.removeLayer(mar)
-    for(var i=0;i<zz.length;i++)
+    for(var i=0;i<zz1.length;i++)
     {
       
-     
-        mar = L.circle([lat[i],lon[i]],29000,{
+        var subCount1 = values1[i]
+        mar = L.circle([lat1[i],lon1[i]],subCount1,{
           color: "blue",
           
           
           }).addTo(map)
     .bindPopup('Location: '+zz[i]+"<br>(Confirmed Cases)")
-    .openPopup();
+    
     }   
 }
   }

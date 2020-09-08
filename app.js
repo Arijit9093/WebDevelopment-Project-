@@ -90,7 +90,7 @@ app.get('/',function(req,res){
 
         var data4 = await fetch('https://covid19.mathdro.id/api/countries/australia')
         var response4 = await data4.json()
-
+        
         
     res.render("index",{'res':response,'res2':response1,'res3':response2,'res4':response3,'res5':response4,'res6':recovered})
     }
