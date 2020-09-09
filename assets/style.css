@@ -250,8 +250,12 @@ body{
 }
 .heading{
     margin-left:2%;
+    cursor: pointer;
     margin-top: 10px;
     color: white;
+}
+.heading:hover{
+   transform:scale(1.2);
 }
 .aa2{
     height: 150px;
