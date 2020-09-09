@@ -30,10 +30,10 @@
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="nav">
         <!-- Brand -->
-        <h3 class="heading">
+        <h3 class="heading ">
             COVID-TRACKER
         </h3>
-        <div class="navv">
+        <div class="navv  ml-auto">
           <h5>
             <a class="nav-link" href="/about">About Us</a>
       </h5>
@@ -44,7 +44,7 @@
               <a class="nav-link" href="/bt">Corona Info</a>
         </h5>
 <h5>          
-              <a class="nav-link" href="/signup">SignUp/Login</a>
+              <a class="nav-link" href="/signup" >SignUp/Login</a>
             </h5> 
         </div>
         <!-- Links -->
@@ -87,32 +87,31 @@
     </div>
 
     <div class="usa">
-        <h2>USA</h2>
-        <p class="para">
+        <h1>USA</h1>
+        <div class="para">
             
                 <p><b> Recovered Cases:</b> <%= res3.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
                 <p> <b>Confirmed Cases: </b><%= res3.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
                 <p><b> Death Cases:</b> <%= res3.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
-
+        </div>
         
     </div>
     <div class="india">
-        <h3>INDIA</h3>
-        <p class="para">
+        <h1>INDIA</h1>
+        <div class="para">
             <p><b> Recovered Cases:</b> <%= res4.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
                 <p> <b>Confirmed Cases: </b><%= res4.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
                 <p><b> Death Cases:</b> <%= res4.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
-
-        </p>
+        </div>
     </div>
     <div class="aus">
-        <h3>Australia</h3>
-        <p class="para">
+        <h1>AUSTRALIA</h1>
+        <div class="para">
             <p><b> Recovered Cases:</b> <%= res5.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
             <p> <b>Confirmed Cases: </b><%= res5.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
             <p><b> Death Cases:</b> <%= res5.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
 
-        </p>
+        </div>
     </div>
     
 
@@ -191,14 +190,8 @@
     </table>
   </div>
 
- 
+ <hr>
 
-
-  <div id = "map" style = "background-color: white; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
-    <h2 style="text-align:center; margin-top: 30px;">
-        Confirmed Cases
-    </h2>
-  </div>
   <div class="chart-container">
 
   <canvas id="myChart">
@@ -219,22 +212,32 @@
 
 </canvas>
 </div>
+<hr>
+  <div id = "map" style = "background-color: white; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
+    <h2 style="text-align:center; margin-top: 30px;">
+        Confirmed Cases
+    </h2>
+  </div>
+  <hr>
 <div id = "map1" style = "background-color: white; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
     <h2 style="text-align:center; margin-top: 30px;">
         Recovered Cases
     </h2>
 </div>
+<hr>
 <div id = "map2" style = "background-color: white; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
     <h2 style="text-align:center; margin-top: 30px;">
         Death Cases
     </h2>
 </div>
+<hr>
 
 <div id = "map3" style = "background-color: white; display:none;width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
   <h2 id="hh" style="text-align:center; margin-top: 30px;">
       Death Cases
   </h2>
 </div>
+<hr>
 
 <div class="row" style="margin-top:20px;margin-bottom:20px">
   <div class="col-1"></div>

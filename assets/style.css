@@ -40,7 +40,6 @@
   }
 
 body{
-    background-image: url('https://www.budenheim.com/uploads/background/Covid-HG.jpg');
     background-size: cover;   
     background-position: center;
     overflow-x: hidden;
@@ -57,7 +56,8 @@ body{
 .aa{
     height: 150px;
     width: 300px;
-    background-color: red;
+    color: white;
+    background-color: black;
     margin-left: 110px;
     text-align: center;
     margin-top: 50px;
@@ -65,6 +65,7 @@ body{
     border-radius: 5px;
     box-shadow: chartreuse;
     display: inline-block;
+    transition : 0.25s;
 }
 
 .aa1{
@@ -78,6 +79,7 @@ body{
     border-radius: 5px;
     box-shadow: chartreuse;
     display: inline-block;
+    transition : 0.25s;
 }
 #covid{
     width: 100%;
@@ -181,6 +183,20 @@ body{
     font-size: 30px;
     color: yellow;
 }
+.india , .aus ,.usa, .aa,.aa1,.aa2,.scroll{
+    box-shadow: 12px 10px 10px -1px rgba(201,201,201,0.7);
+}
+.india p, .aus p,.usa p{
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 12px 10px 10px -1px rgba(68, 68, 68, 0.7);
+    transition: .125s;
+}
+.india p:hover, .aus p:hover,.usa p:hover{
+    transform: scale(1.2);
+    overflow: hidden;
+}
 .usa{
     height: 350px;
     width: 300px;
@@ -211,13 +227,13 @@ body{
         display: inline-block;
     
 }
-.aus h3{
+.aus h1{
     color: red;
 }
-.india h3{
+.india h1{
     color: red;
 }
-.usa h3{
+.usa h1{
     color: red;
 }
 .aus p{
@@ -254,6 +270,7 @@ body{
     border-radius: 5px;
     box-shadow: chartreuse;
     display: inline-block;
+    opacity: 1;
 }
 #email{
     margin-top: 10px;
@@ -269,17 +286,21 @@ body{
     color: red;
     padding-top: 10px;
 }
-.navv h5 .nav-link{
+.nav-link{
     color: tomato;
 }
-.navv h5:hover{
-    background-color: white;
+.nav-link:hover{
+    background-color: tomato;
+    color: white;
+    border-radius: 5px;
 }
 .heading{
-    margin-left:2%;
+    margin-left:1%;
     cursor: pointer;
     margin-top: 10px;
     color: white;
+    padding-left: 20px;
+    transition : 0.25s;
 }
 .heading:hover{
    transform:scale(1.2);
@@ -316,4 +337,11 @@ body{
     font-family: 'Josefin Sans', sans-serif;
     margin: 0%;
     box-sizing: border-box;
+}
+
+.chart-container{
+    border: black solid;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 12px 10px 10px -1px rgba(201,201,201,0.7);
 }
