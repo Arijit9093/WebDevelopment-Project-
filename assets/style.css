@@ -245,8 +245,12 @@ body{
 .navv h5 .nav-link{
     color: tomato;
 }
+.navv h5:hover{
+    background-color: white;
+}
 .heading{
     margin-left:2%;
+    margin-top: 10px;
     color: white;
 }
 .aa2{
