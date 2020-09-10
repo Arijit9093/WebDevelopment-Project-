@@ -54,6 +54,11 @@ app.get('/contact',function(req,res){
     res.render("contact.ejs")
 })
 
+app.post('/email',function(req,res){
+    console.log(req.body)
+    res.redirect('/contact')
+})
+
 app.get('/weather',function(req,res){
     res.render("weather")
 })

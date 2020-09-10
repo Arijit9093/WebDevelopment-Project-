@@ -38,31 +38,31 @@
     <div class="row" style="height:550px;">
       <div class="col-md-6">
         <h1 class="text-uppercase mt-3 font-weight-bold text-white">CONTACT US</h1>
-        <form action="">
+        <form method="POST" action="/email">
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="text" class="form-control mt-2" placeholder="First Name" required>
+                <input type="text" autocomplete="off" name="first" class="form-control mt-2" placeholder="First Name" required>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="text" class="form-control mt-2" placeholder="Last Name" required>
+                <input type="text"  autocomplete="off" name="last" class="form-control mt-2" placeholder="Last Name" required>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="email" class="form-control mt-2" placeholder="Email" required>
+                <input type="email"  autocomplete="off" name="email" class="form-control mt-2" placeholder="Email" required>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <input type="number" class="form-control mt-2" placeholder="Phone number" required>
+                <input type="number"  autocomplete="off" name="phone" class="form-control mt-2" placeholder="Phone number" required>
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your Message" rows="3" required></textarea>
+                <textarea class="form-control"  autocomplete="off" name="message" id="exampleFormControlTextarea1" placeholder="Your Message" rows="3" required></textarea>
               </div>
             </div>
             <div class="col-12">
