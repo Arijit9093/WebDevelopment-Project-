@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var limitter = require('express-rate-limit')
 var path = require('path');
 var session=require('express-session')
 require('dotenv').config()
@@ -22,6 +23,18 @@ app.use(session({
     resave:true,
     secret:"My SECRET KEY"
 }))
+
+app.use(limitter({
+    windowMs:5000,
+    max:15,
+    message:{
+        status:401,
+        message:"Too many requests"
+    }
+
+}))
+
+
  var transport = nodeMailer.createTransport({
      service:'gmail',
      auth:{
