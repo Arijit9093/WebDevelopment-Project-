@@ -102,7 +102,16 @@ app.get('/',function(req,res){
 })
 
 app.get("*",function(req,res){
-    res.status(500).send("Invalid Url")
+    var json={
+        error:{
+            status:402,
+            message:"Invalid Url",
+            source:"COVID 19 Tracker",
+            developers:"Rishav,Radhika,Ashwath"
+        }
+    }
+    res.header("Content-Type",'application/json');
+    res.send(JSON.stringify(json, null, 4));
 })
 
 
