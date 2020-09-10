@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var session=require('express-session')
-
+require('dotenv').config()
 var ejs = require('ejs')
 var fetch = require('node-fetch')
 
@@ -25,8 +25,8 @@ app.use(session({
  var transport = nodeMailer.createTransport({
      service:'gmail',
      auth:{
-         user:    ,
-         pass :    
+         user:process.env.Gmail,
+         pass :process.env.Password    
      }
  })
 
