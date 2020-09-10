@@ -10,7 +10,7 @@ var nodeMailer = require('nodemailer')
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 var bodyParser = require('body-parser');
-const { get } = require('https');
+
 app.use(bodyParser.json())
 app.use(express.static(__dirname+'/assets'));
 app.use(express.static('public'))
