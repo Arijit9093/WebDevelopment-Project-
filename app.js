@@ -40,6 +40,10 @@ app.use(session({
 
 const url = "https://covid19.mathdro.id/api"
 
+app.get('/contact',function(req,res){
+    res.render("contact.ejs")
+})
+
 app.get('/weather',function(req,res){
     res.render("weather")
 })
@@ -95,6 +99,10 @@ app.get('/',function(req,res){
     res.render("index",{'res':response,'res2':response1,'res3':response2,'res4':response3,'res5':response4,'res6':recovered})
     }
     
+})
+
+app.get("*",function(req,res){
+    res.status(500).send("Invalid Url")
 })
 
 
