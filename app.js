@@ -5,6 +5,8 @@ var session=require('express-session')
 
 var ejs = require('ejs')
 var fetch = require('node-fetch')
+
+var nodeMailer = require('node-mailer')
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 var bodyParser = require('body-parser');
@@ -20,6 +22,14 @@ app.use(session({
     resave:true,
     secret:"My SECRET KEY"
 }))
+ var transport = nodeMailer.createTransport({
+     service:'gmail',
+     auth:{
+         user:    ,
+         pass :    
+     }
+ })
+
 //https://covid19.mathdro.id/api/   it gives the confirmed,recovered and death cases overall
 
 
