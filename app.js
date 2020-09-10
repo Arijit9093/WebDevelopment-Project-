@@ -6,7 +6,7 @@ require('dotenv').config()
 var ejs = require('ejs')
 var fetch = require('node-fetch')
 
-var nodeMailer = require('node-mailer')
+var nodeMailer = require('nodemailer')
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 var bodyParser = require('body-parser');
