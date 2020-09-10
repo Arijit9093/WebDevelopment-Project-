@@ -56,6 +56,31 @@ app.get('/contact',function(req,res){
 
 app.post('/email',function(req,res){
     console.log(req.body)
+    res.locals.first=req.body.first
+    res.locals.last=req.body.last
+    
+    ejs.renderFile(__dirname + "/views/rishav.ejs", { name: 'Rishav' }, function (err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            var mainOptions = {
+                from: 'rishavrishu2001.ra@gmail.com',
+                to: req.body.email,
+                subject: 'Contact Us with love by (COVID-19 TRACKER)',
+                html: data
+            };
+            console.log("html data ======================>", mainOptions.html);
+            transport.sendMail(mainOptions, function (err, info) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log('Message sent: ' + info.response);
+                }
+            });
+        }
+        
+        });
+    
     res.redirect('/contact')
 })
 
