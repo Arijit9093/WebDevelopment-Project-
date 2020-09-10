@@ -59,7 +59,7 @@ body{
     height: 150px;
     width: 300px;
     color: white;
-    background-color: black;
+    background-color: blue;
     margin-left: 110px;
     text-align: center;
     margin-top: 50px;
@@ -159,7 +159,6 @@ body{
     color: white;
   }
   
-
 
 
 
@@ -293,7 +292,7 @@ background-image: url('https://imagevars.gulfnews.com/2019/08/22/India-Economy-l
     color: white;
     text-align: center;
     padding-top: 12px;
-    background-color: black;
+    background-color: red;
     margin-left: 110px;
     margin-top: 50px;
     border-radius: 5px;

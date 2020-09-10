@@ -87,7 +87,7 @@
     </div>
 
     <div class="usa">
-        <h1>USA</h1>
+        <h1 style="color:green">USA</h1>
         <div class="para">
                 <p><b> Recovered Cases:</b> <%= res3.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
                 <p> <b>Confirmed Cases: </b><%= res3.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
@@ -212,27 +212,27 @@
 </div>
 <hr>
   <div id = "map" style = "background-color: white; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
-    <h2 style="text-align:center; margin-top: 30px;">
+    <h2 style="text-align:center; margin-top: 10px;">
         Confirmed Cases
     </h2>
   </div>
   <hr>
 <div id = "map1" style = "background-color: white; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
-    <h2 style="text-align:center; margin-top: 30px;">
+    <h2 style="text-align:center; margin-top: 10px;">
         Recovered Cases
     </h2>
 </div>
 <hr>
 <div id = "map2" style = "background-color: white; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
-    <h2 style="text-align:center; margin-top: 30px;">
+    <h2 style="text-align:center; margin-top: 10px;">
         Death Cases
     </h2>
 </div>
 <hr>
 
-<div id = "map3" style = "background-color: white; display:none;width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
-  <h2 id="hh" style="text-align:center; margin-top: 30px;">
-      Death Cases
+<div id = "map3" style = "background-color: white; width:700px; height:480px;margin-top: 20px; margin-left: 50vh; margin-bottom: 13px;">
+  <h2 id="hh" style="text-align:center; margin-top: 10px;">
+      
   </h2>
 </div>
 <hr>
@@ -525,13 +525,14 @@ render()
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map3);
+  
+
   function check(a,b,c,d,e,f)
   {
    
-   if(document.getElementById("map3").style.display=="none")
-    {
+  
       document.getElementById("map3").style.display="block"
-    }
+    
     document.getElementById("hh").innerHTML=c
    
     if(mar3!=null)
