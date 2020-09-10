@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="nav">
         <!-- Brand -->
         <h3 class="heading ">
-            COVID-TRACKER
+            <span class="tcol">C</span>ovid<span class="tcol">T</span>racker
         </h3>
         <div class="navv  ml-auto">
           <h5>
@@ -89,12 +89,10 @@
     <div class="usa">
         <h1>USA</h1>
         <div class="para">
-            
                 <p><b> Recovered Cases:</b> <%= res3.recovered.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
                 <p> <b>Confirmed Cases: </b><%= res3.confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
                 <p><b> Death Cases:</b> <%= res3.deaths.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></p><br>
         </div>
-        
     </div>
     <div class="india">
         <h1>INDIA</h1>
