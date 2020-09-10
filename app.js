@@ -55,11 +55,11 @@ app.get('/contact',function(req,res){
 })
 
 app.post('/email',function(req,res){
-    console.log(req.body)
+   
     res.locals.first=req.body.first
     res.locals.last=req.body.last
-    
-    ejs.renderFile(__dirname + "/views/rishav.ejs", { name: 'Rishav' }, function (err, data) {
+    var random_id =Math.floor(Math.random()*100000)
+    ejs.renderFile(__dirname + "/views/rishav.ejs", { name: req.body.first,id: random_id }, function (err, data) {
         if (err) {
             console.log(err);
         } else {
@@ -73,8 +73,10 @@ app.post('/email',function(req,res){
             transport.sendMail(mainOptions, function (err, info) {
                 if (err) {
                     console.log(err);
+                   
                 } else {
                     console.log('Message sent: ' + info.response);
+                    res.redirect('/contact')
                 }
             });
         }
@@ -156,7 +158,7 @@ app.get("*",function(req,res){
 
 
 
-app.listen(process.env.PORT||9000,function(req,res){
+app.listen(process.env.PORT||8000,function(req,res){
    console.log("Listening...")
 
 })
