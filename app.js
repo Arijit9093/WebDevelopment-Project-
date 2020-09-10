@@ -69,8 +69,7 @@ app.get('/contact',function(req,res){
 
 app.post('/email',function(req,res){
    
-    res.locals.first=req.body.first
-    res.locals.last=req.body.last
+    console.log(req.body)
     var random_id =Math.floor(Math.random()*100000)
     ejs.renderFile(__dirname + "/views/rishav.ejs", { name: req.body.first,id: random_id }, function (err, data) {
         if (err) {
