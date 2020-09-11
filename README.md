@@ -1,2 +1,2 @@
 # WebDevelopment-Project
-# Developers : Rishav Agarwal,Radhika Mangal,Ashwath
+# Developers : Arijit Chakraborty & Yash Sharma
