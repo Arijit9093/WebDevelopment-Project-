@@ -23,26 +23,7 @@ app.use(session({
     resave:true,
     secret:"My SECRET KEY"
 }))
-
-app.use(limitter({
-    windowMs:5000,
-    max:15,
-    message:{
-        status:401,
-        message:"Too many requests"
-    }
-
-}))
-
-
- var transport = nodeMailer.createTransport({
-     service:'gmail',
-     auth:{
-         user:process.env.Gmail,
-         pass :process.env.Password    
-     }
- })
-
+ 
 //https://covid19.mathdro.id/api/   it gives the confirmed,recovered and death cases overall
 
 
@@ -67,36 +48,6 @@ app.get('/contact',function(req,res){
     res.render("contact.ejs")
 })
 
-app.post('/email',function(req,res){
-   
-    console.log(req.body)
-    var random_id =Math.floor(Math.random()*100000)
-    ejs.renderFile(__dirname + "/views/rishav.ejs", { name: req.body.first,id: random_id }, function (err, data) {
-        if (err) {
-            console.log(err);
-        } else {
-            var mainOptions = {
-                from: 'rishavrishu2001.ra@gmail.com',
-                to: req.body.email,
-                subject: 'Contact Us with love by (COVID-19 TRACKER)',
-                html: data
-            };
-            console.log("html data ======================>", mainOptions.html);
-            transport.sendMail(mainOptions, function (err, info) {
-                if (err) {
-                    console.log(err);
-                   
-                } else {
-                    console.log('Message sent: ' + info.response);
-                    res.redirect('/contact')
-                }
-            });
-        }
-        
-        });
-    
-    res.redirect('/contact')
-})
 
 app.get('/weather',function(req,res){
     res.render("weather")
@@ -155,18 +106,7 @@ app.get('/',function(req,res){
     
 })
 
-app.get("*",function(req,res){
-    var json={
-        error:{
-            status:402,
-            message:"Invalid Url",
-            source:"COVID 19 Tracker",
-            developers:"Rishav,Radhika,Ashwath"
-        }
-    }
-    res.header("Content-Type",'application/json');
-    res.send(JSON.stringify(json, null, 4));
-})
+
 
 
 app.listen(process.env.PORT||8000,function(req,res){
